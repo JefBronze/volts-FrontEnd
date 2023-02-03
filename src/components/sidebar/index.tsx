@@ -61,7 +61,7 @@ function Sidebar({
 }: {
   children: ReactNode;
 }) {
-  const { data, error, isLoading } = useSWR<{ data: VRM.Info }>('/vrm/info', getProfile)
+  const { data, error, isLoading } = useSWR('/vrm/info', getProfile)
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   if (error) return <div>falhou em carregar</div>
@@ -87,7 +87,7 @@ function Sidebar({
       <MobileNav data={{
         name: data?.name,
         avatar_url: data?.avatar_url
-      }} onOpen={onOpen} />
+      } as any} onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
             <Container overflow={'hidden'} maxHeight='100vh' maxW='3x1' h='auto' centerContent>
     {children}

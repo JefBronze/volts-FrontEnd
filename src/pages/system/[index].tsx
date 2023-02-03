@@ -23,7 +23,7 @@ export default function Home({ installations }: any) {
         <AccordionItem overflowX={['auto', 'hidden']} width={[320, 1136]} border={'2'} borderColor='orange.600'>
             <AccordionButton width={['auto', 1136]} maxWidth={[1136]}>
               <Box as="span" flex='1' fontWeight={500} textColor='orange.500' textAlign='left'>
-                {item?.name} [{item.extended.length}] - {String(new Date(item.last_timestamp).toGMTString().toString())} - {item.timezone}
+                {item?.name} [{item.extended.length}] - {String(new Date(item.last_timestamp).toString().split('GMT')[0])} - {item.timezone}
               </Box>
               <AccordionIcon color={'orange.600'} />
             </AccordionButton>
